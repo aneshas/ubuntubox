@@ -12,12 +12,24 @@ sudo apt-get install vim-nox python3-pip -y \
     && pip3 install neovim
 
 # TMUX
+echoerr "Installing Tmux..."
+# TODO - Install latest version
+sudo apt-get install tmux -y
 
 # Go
 echoerr "Installing Go..."
 sudo add-apt-repository ppa:longsleep/golang-backports -y
 sudo apt-get update
 sudo apt-get install golang-go -y
+
+# VSCode
+echoerr "Installing Visual Studio Code..."
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg \
+    && sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/ \
+    && sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list' \
+    && sudo apt-get install apt-transport-https -y \
+    && sudo apt-get update \
+    && sudo apt-get install code -y
 
 # Oh My Zsh
 echoerr "Installing Oh My Zsh..."
@@ -33,7 +45,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Oh My Zsh Themes
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-cp -U ./p10k.zsh $HOME/.p10k.zsh
+cp -u ./p10k.zsh $HOME/.p10k.zsh
 
 # kubectl
 echoerr "Installing kubectl..."
@@ -50,7 +62,7 @@ if [ ! -d $HOME/dotfiles ]; then
 fi
 ln -sf $HOME/dotfiles/vimrc $HOME/.vimrc 
 ln -sf $HOME/dotfiles/zshrc $HOME/.zshrc
-# ln -sf $HOME/dotfiles/tmux.conf $HOME/.vimrc 
+ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf 
 
 echoerr "Done."
 
