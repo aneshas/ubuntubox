@@ -18,9 +18,9 @@ sudo apt-get install tmux -y
 
 # Go
 echoerr "Installing Go..."
-sudo add-apt-repository ppa:longsleep/golang-backports -y
-sudo apt-get update
-sudo apt-get install golang-go -y
+sudo add-apt-repository ppa:longsleep/golang-backports -y \
+    && sudo apt-get update \
+    && sudo apt-get install golang-go -y
 
 # VSCode
 echoerr "Installing Visual Studio Code..."
