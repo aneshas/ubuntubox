@@ -13,8 +13,8 @@ sudo apt-get install vim-nox python3-pip -y \
 
 # TMUX
 echoerr "Installing Tmux..."
-# TODO - Install latest version
 sudo apt-get install tmux -y
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/tmux-resurect
 
 # Go
 echoerr "Installing Go..."
@@ -96,6 +96,7 @@ fi
 ln -sf $HOME/dotfiles/vimrc $HOME/.vimrc 
 ln -sf $HOME/dotfiles/zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf 
+ln -sf $HOME/dotfiles/psqlrc $HOME/.psqlrc
 
 # Git
 git config --global user.name "Anes Hasicic"
