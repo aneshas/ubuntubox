@@ -97,5 +97,9 @@ ln -sf $HOME/dotfiles/vimrc $HOME/.vimrc
 ln -sf $HOME/dotfiles/zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf 
 
+# Git
+git config --global user.name "Anes Hasicic"
+git config --global user.email me@anes.io 
+
 echoerr "Done."
 
