@@ -55,6 +55,39 @@ if [ ! -x /usr/local/bin/kubectl ]; then
         && sudo mv ./kubectl /usr/local/bin/kubectl
 fi
 
+# Gnome Tweak Tool
+echoerr "Installing Gnome Tweak Tool..."
+sudo add-apt-repository universe
+sudo apt install gnome-tweak-tool
+
+# Calibre
+sudo apt-get install calibre -y
+
+# .NET
+echoerr "Installing .net core"
+wget https://packages.microsoft.com/config/ubuntu/19.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install apt-transport-https -y
+sudo apt-get update
+sudo apt-get install dotnet-sdk-3.1 -y
+
+# TLP
+echoerr "Installing TLP..."
+sudo add-apt-repository ppa:linrunner/tlp
+sudo apt update
+sudo apt install tlp 
+
+# Postgres
+echoerr "Installing PostgreSQL..."
+sudo apt-get install postgresql-11 -y
+sudo apt-get install pgcli -y
+
+# nodejs
+echoerr "Installing NodeJS..."
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install nodejs -y
+
 # Dotfiles 
 echoerr "Fetching dotfiles..."
 if [ ! -d $HOME/dotfiles ]; then
