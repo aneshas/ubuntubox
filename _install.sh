@@ -88,6 +88,14 @@ echoerr "Installing NodeJS..."
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install nodejs -y
 
+# Anki
+sudo apt-get install -y anki
+
+# Fonts
+echoerr "Installing fonts..."
+sudo add-apt-repository universe
+sudo apt install fonts-firacode 
+
 # Dotfiles 
 echoerr "Fetching dotfiles..."
 if [ ! -d $HOME/dotfiles ]; then
